@@ -48,7 +48,7 @@ public class NewMonoBehaviourScript : MonoBehaviour
         Controller.Move(CurrentMoveVelocity * Time.deltaTime);
 
         Ray groundCheckRay = new Ray(transform.position, Vector3.down);
-        if (Physics.Raycast(groundCheckRay, 1.1f)) // if on floor
+        if (Physics.Raycast(groundCheckRay, 1.2f)) // if on floor
         {
             CurrentForceVelocity.y = -2f;
 
