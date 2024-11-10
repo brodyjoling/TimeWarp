@@ -443,7 +443,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 4b794b6ae7f5ee74fa07f8325d11e9e9, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.34680247
+      value: 0.258
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 4b794b6ae7f5ee74fa07f8325d11e9e9, type: 3}
       propertyPath: m_LocalPosition.z
@@ -724,6 +724,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inputStationCollider: {fileID: 0}
   theone: {fileID: 0}
+  thetwo: {fileID: 0}
 --- !u!64 &257234649
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -831,6 +832,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inputStationCollider: {fileID: 0}
   theone: {fileID: 0}
+  thetwo: {fileID: 0}
 --- !u!114 &277516239
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -992,6 +994,7 @@ GameObject:
   - component: {fileID: 369236989}
   - component: {fileID: 369236988}
   - component: {fileID: 369236987}
+  - component: {fileID: 369236991}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -1088,6 +1091,33 @@ Transform:
   m_Children: []
   m_Father: {fileID: 429572784}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!54 &369236991
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 369236985}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &410087039
 GameObject:
   m_ObjectHideFlags: 0
@@ -1429,6 +1459,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inputStationCollider: {fileID: 0}
   theone: {fileID: 0}
+  thetwo: {fileID: 0}
 --- !u!114 &504848970
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1680,6 +1711,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inputStationCollider: {fileID: 0}
   theone: {fileID: 0}
+  thetwo: {fileID: 0}
 --- !u!54 &778838312
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1792,6 +1824,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inputStationCollider: {fileID: 0}
   theone: {fileID: 0}
+  thetwo: {fileID: 0}
 --- !u!114 &793185433
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2016,6 +2049,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inputStationCollider: {fileID: 1934574358}
   theone: {fileID: 978363469}
+  thetwo: {fileID: 369236991}
 --- !u!54 &978363469
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2254,6 +2288,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inputStationCollider: {fileID: 0}
   theone: {fileID: 0}
+  thetwo: {fileID: 0}
 --- !u!54 &1067789015
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2994,6 +3029,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inputStationCollider: {fileID: 0}
   theone: {fileID: 0}
+  thetwo: {fileID: 0}
 --- !u!114 &1458019042
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3412,6 +3448,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inputStationCollider: {fileID: 0}
   theone: {fileID: 0}
+  thetwo: {fileID: 0}
 --- !u!54 &1888444633
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -3497,6 +3534,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inputStationCollider: {fileID: 0}
   theone: {fileID: 0}
+  thetwo: {fileID: 0}
 --- !u!54 &1915389554
 Rigidbody:
   m_ObjectHideFlags: 0
