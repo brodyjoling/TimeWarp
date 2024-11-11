@@ -14,7 +14,7 @@ public class MouseDrag : MonoBehaviour
 
     public Collider inputStationCollider;
     public Rigidbody theone;
-    public Rigidbody thetwo;
+    //public Rigidbody thetwo;
 
     private RandomGravity randomGravityScript;
     private RandomGravityStart randomGravityStartScript;
@@ -34,7 +34,7 @@ public class MouseDrag : MonoBehaviour
         if (isDragging && nearStation && Input.GetKeyDown(KeyCode.E)) // make this into more if statements
         {
             theone.isKinematic = true;
-            thetwo.isKinematic = false;
+            //thetwo.isKinematic = false;
             MoveToStation();
             InsertDevice();
         }
