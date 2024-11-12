@@ -14,7 +14,14 @@ public class MouseDrag : MonoBehaviour
 
     public Collider inputStationCollider;
     public Rigidbody theone;
+    public GameObject chip;
     //public Rigidbody thetwo;
+    public Rigidbody intro;
+
+    public GameObject insertChipText;
+
+    public Texture insertedTexture;
+    public MeshRenderer brokenChip;
 
     private RandomGravity randomGravityScript;
     private RandomGravityStart randomGravityStartScript;
@@ -31,13 +38,32 @@ public class MouseDrag : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (isDragging && nearStation && Input.GetKeyDown(KeyCode.E)) // make this into more if statements
+        if (isDragging)
         {
-            theone.isKinematic = true;
-            //thetwo.isKinematic = false;
+            if (nearStation)
+            {
+                insertChipText.SetActive(true);
+                if(Input.GetKeyDown(KeyCode.E))
+                {
+                    insertChipText.SetActive(false);
+                    chip.SetActive(false);
+                    brokenChip.material.mainTexture = insertedTexture;
+                    MoveToStation();
+                    InsertDevice();
+                }
+            }
+            else
+            {
+                insertChipText.SetActive(false);
+            }
+        }
+        /*if (isDragging && nearStation && Input.GetKeyDown(KeyCode.E)) // make this into more if statements
+        {
+            chip.SetActive(false);
+            brokenChip.material.mainTexture = insertedTexture;
             MoveToStation();
             InsertDevice();
-        }
+        }*/
     }
 
     private void OnMouseDown()
@@ -46,19 +72,40 @@ public class MouseDrag : MonoBehaviour
         {
             isDragging = true;
             UpdateDistanceFromCamera();
+
+
         }
     }
     private void OnMouseDrag()
     {
         if (isDragging)
         {
-            Vector3 mousePosition = new Vector3(Input.mousePosition.x, Input.mousePosition.y, distanceFromCamera);
+            if (rb == intro)
+            {
+                Vector3 paperRotation = Camera.main.transform.rotation.eulerAngles;
+                Vector3 mousePosition = new Vector3(Input.mousePosition.x, Input.mousePosition.y, 1);
 
-            Vector3 objPosition = Camera.main.ScreenToWorldPoint(mousePosition);
+                Vector3 objPosition = Camera.main.ScreenToWorldPoint(mousePosition);
 
-            Vector3 direction = (objPosition - transform.position);
+                Vector3 direction = (objPosition - transform.position);
 
-            rb.linearVelocity = direction * dragSpeed;
+
+                rb.linearVelocity = direction * dragSpeed;
+
+                paperRotation.x -= 90;
+                rb.transform.rotation = Quaternion.Euler(paperRotation);
+            }
+            else
+            {
+                Vector3 mousePosition = new Vector3(Input.mousePosition.x, Input.mousePosition.y, distanceFromCamera);
+
+                Vector3 objPosition = Camera.main.ScreenToWorldPoint(mousePosition);
+
+                Vector3 direction = (objPosition - transform.position);
+
+                rb.linearVelocity = direction * dragSpeed;
+            }
+            
         }
 
     }
