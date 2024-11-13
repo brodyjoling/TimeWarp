@@ -1,0 +1,49 @@
+Brainstorming - Sewage Source Code Game
+
+-Solve levels with wacky physics (Time Warp)
+	Level one gives you background why you are there, and teaches you about the game.
+	You have to solve puzzles that become harder over time, as the gravity and items 
+	go bazurk. You can change you mass, and how hard gravity acts.
+WHEN YOU FIRST WALK IN YOU ARE GIVEN A FAN, THAT IS HOW YOU NAVIGATE THROUGH LOW GRAVITY SCENARIOS?? 
+
+You were living in a simulation:
+Two forces are telling you different things. In the end you caused the end of the world, who would want this? You should have listened to the messages telling you to stop
+
+MODEL CUSTOM SHIP, (maybe some other stuff also)
+
+OBEJCTS can push you away or pull yo8u in?
+
+MAKE SPEED CHANGE RANDOMLY OF PLAYER
+
+in tut there is a bed and it is like a ship.
+
+ADD GAME OBJECTS IN THE AIR THAT ACT LIKE BLACK HOLES
+
+YOU ARE GIVEN A MINI--STABALIZER this can stalbalize one object at a time.
+
+To beat each level you have to repair the physics of the room by triggering stabilization devices (which thankfully aren't effected by the broken physics), but the gravity is unpredictable. You never know when it will change.
+each level has a bunch of objects in your way. If the gravity is low you can take advantage and push them out of the way. 
+
+LEVEL ONE:
+you need to stack objects to make it to the Stablilization device. 
+The room is called 'The 
+
+LEVEL TWO:
+There is a safe in the middle of the room and you need to input numbers.
+There is a paper floating around with the code on it.
+
+LEVEL THREE:
+there is a door blocking your way and it is going crazy. you cant use the mini stabalizer its to strong. To solve the level you need to grab an item and put it in the door to temperality slow down has fast it opens and shuts.
+
+LEVEL FOUR:
+There are two enviorments that change when you push a button.
+
+LEVEL FIVE:
+Combination of all the rest, at the end there are two doors, one with 'exit' and the other with the physics stabalicer
+
+STORY:
+You were brought here to fix what the others couldn't. We picked you. We need you to find the stabilization devices (emits a sound???) to bring peace back to our world. Good Luck.
+
+QOL:
+-Scroll wheel and right click rotate and move items being dragged
+-change the randomGravity range for each level based on two entered numbers
