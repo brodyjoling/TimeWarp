@@ -5,11 +5,11 @@ public class RandomGravityStart : MonoBehaviour
     private Rigidbody rb;
     private Vector3 randomGravity;
     private float gravityStrength;
-    private float changeTime = 15;
+    private float changeTime = 20;
     private float timeSinceLastChange = 0f;
     private float floatStrength = 0;
 
-    private bool gravityReset = false;
+    public static bool gravityReset = false;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -22,8 +22,14 @@ public class RandomGravityStart : MonoBehaviour
     {
         if (!gravityReset)
         {
+            rb.useGravity = false;
             rb.AddForce(Vector3.up * floatStrength);
             rb.AddForce(randomGravity, ForceMode.Acceleration);
+            
+        }
+        else
+        {
+            rb.useGravity = true;
         }
         timeSinceLastChange += Time.fixedDeltaTime;
 
@@ -38,8 +44,8 @@ public class RandomGravityStart : MonoBehaviour
 
     void ChangeGravity()
     {
-        floatStrength = Random.Range(0, 15);
-        gravityStrength = Random.Range(0.01f, 5f);
+        //floatStrength = Random.Range(5, 15);
+        gravityStrength = Random.Range(0.01f, 1f);
         randomGravity = new Vector3(
             Random.Range(-1f, 1f),
             Random.Range(-1f, 1f),
@@ -49,8 +55,11 @@ public class RandomGravityStart : MonoBehaviour
 
     public void ResetGravity()
     {
+
+        rb.useGravity = true;
         gravityReset = true;
 
         rb.angularVelocity = Vector3.zero;
     }
+
 }

@@ -57,6 +57,10 @@ public class MouseDrag : MonoBehaviour
                 insertChipText.SetActive(false);
             }
         }
+        else
+        {
+            insertChipText.SetActive(false);
+        }
         /*if (isDragging && nearStation && Input.GetKeyDown(KeyCode.E)) // make this into more if statements
         {
             chip.SetActive(false);
