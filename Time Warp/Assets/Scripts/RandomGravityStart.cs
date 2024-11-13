@@ -22,28 +22,26 @@ public class RandomGravityStart : MonoBehaviour
     {
         if (!gravityReset)
         {
-            rb.useGravity = false;
+            if (timeSinceLastChange >= changeTime)
+            {
+                ChangeGravity();
+                timeSinceLastChange = 0f;
+                changeTime = Random.Range(1, 7);
+            }
             rb.AddForce(Vector3.up * floatStrength);
             rb.AddForce(randomGravity, ForceMode.Acceleration);
-            
         }
         else
         {
             rb.useGravity = true;
         }
         timeSinceLastChange += Time.fixedDeltaTime;
-
-        if (timeSinceLastChange >= changeTime)
-        {
-            ChangeGravity();
-            timeSinceLastChange = 0f;
-            changeTime = Random.Range(1, 7);
-        }
-
+        
     }
 
     void ChangeGravity()
     {
+        rb.useGravity = false;
         //floatStrength = Random.Range(5, 15);
         gravityStrength = Random.Range(0.01f, 1f);
         randomGravity = new Vector3(
@@ -56,7 +54,7 @@ public class RandomGravityStart : MonoBehaviour
     public void ResetGravity()
     {
 
-        rb.useGravity = true;
+        //rb.useGravity = true;
         gravityReset = true;
 
         rb.angularVelocity = Vector3.zero;
