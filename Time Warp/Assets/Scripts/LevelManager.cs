@@ -6,14 +6,14 @@ public class LevelManager : MonoBehaviour
     [SerializeField]
     private string[] levels;
 
-    private ScreenWipe screenWipe;
+    public ScreenWipe screenWipe;
     private int nextLevelIndex;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     private void Awake()
     {
         DontDestroyOnLoad(gameObject);
-        screenWipe = GetComponent<ScreenWipe>();
+        //screenWipe = GetComponent<ScreenWipe>();
     }
 
     // Update is called once per frame
@@ -22,6 +22,7 @@ public class LevelManager : MonoBehaviour
         //Debug.Log(RandomGravityStart.gravityReset);
         if (RandomGravityStart.gravityReset)
         {
+            Debug.Log("gravityReset in level manager is true");
             //implement wait for a couple seconds
             StartCoroutine(loadNextLevel());
         }
@@ -37,12 +38,18 @@ public class LevelManager : MonoBehaviour
         string nextLevelName = levels[nextLevelIndex];
 
         screenWipe.ToggleWipe(true);
+        Debug.Log("screenWipe toggled");
         while (!screenWipe.isDone)
         {
+            Debug.Log("screenWipe.isDone: " + screenWipe.isDone);
+
             yield return null;
         }
+        Debug.Log("screenWipe finished");
 
         AsyncOperation operation = SceneManager.LoadSceneAsync(nextLevelName);
+        Debug.Log("SceneManager loading scene maybe");
+
         while (!operation.isDone)
         {
             yield return null;

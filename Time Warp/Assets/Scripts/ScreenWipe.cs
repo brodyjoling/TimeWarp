@@ -15,6 +15,7 @@ public class ScreenWipe : MonoBehaviour
 
     private float wipeProgress;
 
+    //public static bool isDone = false;
     public bool isDone { get; private set; }
 
     private void Awake()
@@ -25,15 +26,8 @@ public class ScreenWipe : MonoBehaviour
 
     public void ToggleWipe(bool blockScreen)
     {
-        isDone = false;
-        if (blockScreen)
-        {
-            wipeMode = WipeMode.WipingToBlocked;
-        }
-        else
-        {
-            wipeMode = WipeMode.WipingToNotBlocked;
-        }
+        isDone = false;  // Ensure isDone is reset at the start of each wipe
+        wipeMode = blockScreen ? WipeMode.WipingToBlocked : WipeMode.WipingToNotBlocked;
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -53,6 +47,10 @@ public class ScreenWipe : MonoBehaviour
             case WipeMode.WipingToNotBlocked:
                 WipeToNotBlocked();
                 break;
+            case WipeMode.Blocked:
+            case WipeMode.NotBlocked:
+                // Do nothing, transition is complete
+                break;
         }
     }
 
@@ -60,10 +58,12 @@ public class ScreenWipe : MonoBehaviour
     {
         wipeProgress += Time.deltaTime * (1f / wipeSpeed);
         image.fillAmount = wipeProgress;
+        Debug.Log(wipeProgress + "WIPE PROGRESS");
         if (wipeProgress >= 1f)
         {
             isDone = true;
             wipeMode = WipeMode.Blocked;
+            Debug.Log("WipeToBlocked done.");
         }
     }
 
@@ -75,6 +75,7 @@ public class ScreenWipe : MonoBehaviour
         {
             isDone = true;
             wipeMode = WipeMode.NotBlocked;
+            Debug.Log("WipeToNOTBlocked done.");
         }
     }
 
