@@ -5,13 +5,11 @@ public class InsertStabalizationDevice : MonoBehaviour
     private bool nearCore = false;
     private Vector3 corePosition;
     public Collider coreCollider;
-
+    [SerializeField]
     private GameObject stabalizationDevice;
-    //public Rigidbody theone; //change
     public GameObject insertText;
     public Texture insertedTexture;
     public MeshRenderer brokenStabalizationDevice;
-
     private LevelManager lvlMgr;
 
     void Start()
@@ -19,7 +17,7 @@ public class InsertStabalizationDevice : MonoBehaviour
         GameObject levelManagerObject = GameObject.Find("LevelManager");
         lvlMgr = levelManagerObject.GetComponent<LevelManager>();
         corePosition = coreCollider.transform.position;
-        stabalizationDevice = gameObject;
+        //stabalizationDevice = gameObject;
     }
 
     // Update is called once per frame
@@ -44,11 +42,43 @@ public class InsertStabalizationDevice : MonoBehaviour
 
     private void InsertDevice()
     {
-        ResetAllGravity();
+        ResetAllGravity("LevelOneGravity");
         Debug.Log("Inserted Stabalization Device");
     }
 
-    private void ResetAllGravity()
+    private void ResetAllGravity(string scriptName)
+    {
+        // Use System.Type to find the script type dynamically
+        System.Type scriptType = System.Type.GetType(scriptName);
+        if (scriptType == null)
+        {
+            Debug.LogError($"Script type '{scriptName}' not found.");
+            return;
+        }
+
+        // Find all objects with the specified script type
+        Object[] objectsWithScript = Resources.FindObjectsOfTypeAll(scriptType);
+
+        foreach (Component obj in objectsWithScript)
+        {
+            // Call ResetGravity method via reflection
+            var method = scriptType.GetMethod("ResetGravity");
+            if (method != null)
+            {
+                method.Invoke(obj, null);
+            }
+            else
+            {
+                Debug.LogError($"ResetGravity method not found on script '{scriptName}'.");
+            }
+        }
+
+        Debug.Log($"Gravity reset for script: {scriptName}");
+
+        lvlMgr.startNextLevel();
+    }
+
+    public void TurnOffGravity()
     {
         RandomGravity[] objectsWithRandomGravity = Object.FindObjectsByType<RandomGravity>(FindObjectsSortMode.None);
         RandomGravityStart[] objectsWithRandomGravity1 = Object.FindObjectsByType<RandomGravityStart>(FindObjectsSortMode.None);
@@ -56,7 +86,7 @@ public class InsertStabalizationDevice : MonoBehaviour
 
         foreach (RandomGravity objectWithRandomGravity in objectsWithRandomGravity)
         {
-            objectWithRandomGravity.ResetGravity();
+            objectWithRandomGravity.ResetGravity(); //
         }
         Debug.Log("Gravity Stabalized");
 

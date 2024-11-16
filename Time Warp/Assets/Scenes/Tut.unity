@@ -5043,6 +5043,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 255455740}
     - target: {fileID: 4113704903852632053, guid: c2c7a6a5763883a4cbed38f2c526f398, type: 3}
+      propertyPath: stabalizationDevice
+      value: 
+      objectReference: {fileID: 688640300084804873}
+    - target: {fileID: 4113704903852632053, guid: c2c7a6a5763883a4cbed38f2c526f398, type: 3}
       propertyPath: brokenStabalizationDevice
       value: 
       objectReference: {fileID: 1344836892790063944}
@@ -5051,6 +5055,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c2c7a6a5763883a4cbed38f2c526f398, type: 3}
+--- !u!1 &688640300084804873 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3806981418086405624, guid: c2c7a6a5763883a4cbed38f2c526f398, type: 3}
+  m_PrefabInstance: {fileID: 688640300084804872}
+  m_PrefabAsset: {fileID: 0}
 --- !u!23 &707468602801925705
 MeshRenderer:
   m_ObjectHideFlags: 0
