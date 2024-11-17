@@ -1,10 +1,10 @@
 using UnityEngine;
 
-public class NewMonoBehaviourScript : MonoBehaviour
+public class PlayerMovement : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public float MoveSmoothTime;
-    public float GravityStrenth;
+    public float GravityStrength;
     public float JumpStrength;
     public float WalkSpeed;
     public float RunSpeed;
@@ -48,7 +48,8 @@ public class NewMonoBehaviourScript : MonoBehaviour
         Controller.Move(CurrentMoveVelocity * Time.deltaTime);
 
         Ray groundCheckRay = new Ray(transform.position, Vector3.down);
-        if (Physics.Raycast(groundCheckRay, 1.2f)) // if on floor
+
+        if (Controller.isGrounded || Physics.Raycast(groundCheckRay, 1.1f))
         {
             CurrentForceVelocity.y = -2f;
 
@@ -59,7 +60,7 @@ public class NewMonoBehaviourScript : MonoBehaviour
         }
         else // if not on flor
         {
-            CurrentForceVelocity.y -= GravityStrenth * Time.deltaTime;
+            CurrentForceVelocity.y -= GravityStrength * Time.deltaTime;
         }
 
         Controller.Move(CurrentForceVelocity * Time.deltaTime);
