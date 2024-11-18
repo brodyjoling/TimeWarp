@@ -699,7 +699,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MoveSmoothTime: 0.1
-  GravityStrenth: 15
+  GravityStrength: 15
   JumpStrength: 6
   WalkSpeed: 4
   RunSpeed: 6
