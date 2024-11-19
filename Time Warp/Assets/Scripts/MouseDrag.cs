@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections.Generic;
 
 public class MouseDrag : MonoBehaviour
 {
@@ -7,10 +8,11 @@ public class MouseDrag : MonoBehaviour
     private float dragSpeed = 10f;
     private float range = 8f;
     public static bool isDragging = false; // possible change
-    private float moveSpeed = 5f;
 
-    private Rigidbody introPaper;
-    private GameObject introPaperObject;
+    //private Rigidbody introPaper;
+    //private GameObject introPaperObject;
+
+    private bool isPaper = false;
 
     private RandomGravity randomGravityScript;
     private RandomGravityStart randomGravityStartScript;
@@ -18,8 +20,12 @@ public class MouseDrag : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        introPaperObject = GameObject.Find("Intro Paper");
-        introPaper = introPaperObject.GetComponent<Rigidbody>();
+        //introPaperObject = GameObject.Find("Paper");
+        //introPaper = introPaperObject.GetComponent<Rigidbody>();
+        if (rb.transform.parent.name == "Paper")
+        {
+            isPaper = true;
+        }
         UpdateDistanceFromCamera();
     }
 
@@ -40,7 +46,7 @@ public class MouseDrag : MonoBehaviour
     {
         if (isDragging)
         {
-            if (rb == introPaper)
+            if (isPaper)
             {
                 Vector3 paperRotation = Camera.main.transform.rotation.eulerAngles;
                 Vector3 mousePosition = new Vector3(Input.mousePosition.x, Input.mousePosition.y, 1);
