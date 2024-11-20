@@ -42,7 +42,9 @@ public class InsertStabalizationDevice : MonoBehaviour
 
     private void InsertDevice()
     {
-        ResetAllGravity("LevelOneGravity");
+        //ResetAllGravity("LevelOneGravity");
+        //ResetAllGravity("RandomGravity");
+        lvlMgr.startNextLevel();
         Debug.Log("Inserted Stabalization Device");
     }
 
