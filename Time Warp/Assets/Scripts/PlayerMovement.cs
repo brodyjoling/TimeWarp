@@ -15,6 +15,8 @@ public class PlayerMovement : MonoBehaviour
 
     private Vector3 CurrentForceVelocity;
 
+    [SerializeField] 
+    private LayerMask defaultLayer;
     void Start()
     {
         Controller = GetComponent<CharacterController>();
@@ -49,7 +51,7 @@ public class PlayerMovement : MonoBehaviour
 
         Ray groundCheckRay = new Ray(transform.position, Vector3.down);
 
-        if (Controller.isGrounded || Physics.Raycast(groundCheckRay, 1.1f))
+        if (Controller.isGrounded || Physics.Raycast(groundCheckRay, 1.1f, defaultLayer))
         {
             CurrentForceVelocity.y = -2f;
 

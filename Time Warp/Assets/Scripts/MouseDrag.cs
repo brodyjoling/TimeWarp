@@ -12,26 +12,37 @@ public class MouseDrag : MonoBehaviour
     //private Rigidbody introPaper;
     //private GameObject introPaperObject;
 
+    private AudioSource sound;
+    private bool soundPlayed = false;
+
     private bool isPaper = false;
+
+    private bool isStabalizationDevice = false;
+    //private MeshCollider mc;
+
+    private AudioSource[] audioSources;
 
     private RandomGravity randomGravityScript;
     private RandomGravityStart randomGravityStartScript;
 
     void Start()
     {
+        audioSources = GetComponents<AudioSource>();
+        //sound = GetComponent<AudioSource>();
         rb = GetComponent<Rigidbody>();
+
         //introPaperObject = GameObject.Find("Paper");
         //introPaper = introPaperObject.GetComponent<Rigidbody>();
         if (rb.transform.parent.name == "Paper")
         {
             isPaper = true;
         }
+        if (rb.transform.parent.name == "StabalizationDevice")
+        {
+            isStabalizationDevice = true;
+            //mc = GetComponent<MeshCollider>();
+        }
         UpdateDistanceFromCamera();
-    }
-
-    void Update()
-    {
-
     }
 
     private void OnMouseDown()
@@ -48,6 +59,13 @@ public class MouseDrag : MonoBehaviour
         {
             if (isPaper)
             {
+                if(!soundPlayed)
+                {
+                    //sound.Play();
+                    audioSources[0].Play();
+                    soundPlayed = true;
+                }
+               
                 Vector3 paperRotation = Camera.main.transform.rotation.eulerAngles;
                 Vector3 mousePosition = new Vector3(Input.mousePosition.x, Input.mousePosition.y, 1);
 
@@ -63,6 +81,19 @@ public class MouseDrag : MonoBehaviour
             }
             else
             {
+                if (!soundPlayed)
+                {
+                    audioSources[1].Play();
+                    soundPlayed = true;
+                }
+                
+                if (isStabalizationDevice)
+                {
+                    gameObject.layer = LayerMask.NameToLayer("NoCollision");
+                    Debug.Log("layerChange");
+                    //mc.isTrigger = true;
+                }
+
                 Vector3 mousePosition = new Vector3(Input.mousePosition.x, Input.mousePosition.y, distanceFromCamera);
 
                 Vector3 objPosition = Camera.main.ScreenToWorldPoint(mousePosition);
@@ -79,6 +110,12 @@ public class MouseDrag : MonoBehaviour
     private void OnMouseUp()
     {
         isDragging = false;
+        soundPlayed = false;
+        if (isStabalizationDevice)
+        {
+            //mc.isTrigger = false;
+            gameObject.layer = LayerMask.NameToLayer("Default");
+        }
     }
 
     private void UpdateDistanceFromCamera()

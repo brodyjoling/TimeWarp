@@ -12,11 +12,13 @@ public class Door : MonoBehaviour
     [SerializeField]
     LayerMask DoorLayer;
 
+    private AudioSource doorSound;
+
     public MeshRenderer doorRenderer;
 
     void Start()
     {
-        
+
     }
 
     void Update()
@@ -27,7 +29,10 @@ public class Door : MonoBehaviour
         {
             if (Input.GetMouseButtonDown(1))
             {
+                //doorSound.Play();
                 selectedDoor = hit.collider.gameObject.transform.parent;
+                doorSound = selectedDoor.GetComponent<AudioSource>();
+                doorSound.Play();
                 Debug.Log("SelectedDoor set:" + selectedDoor);
             }
         }
