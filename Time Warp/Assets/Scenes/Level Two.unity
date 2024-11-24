@@ -16736,6 +16736,74 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1489056834}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1001 &1498411129
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1968407984903962004, guid: d3b7bd5718c643c418498035314e0c93, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 3.93
+      objectReference: {fileID: 0}
+    - target: {fileID: 6539543050135368612, guid: d3b7bd5718c643c418498035314e0c93, type: 3}
+      propertyPath: m_Name
+      value: Plaque
+      objectReference: {fileID: 0}
+    - target: {fileID: 8505771108243364105, guid: d3b7bd5718c643c418498035314e0c93, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 4.669492
+      objectReference: {fileID: 0}
+    - target: {fileID: 8505771108243364105, guid: d3b7bd5718c643c418498035314e0c93, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 4.5206523
+      objectReference: {fileID: 0}
+    - target: {fileID: 8505771108243364105, guid: d3b7bd5718c643c418498035314e0c93, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 15.81084
+      objectReference: {fileID: 0}
+    - target: {fileID: 8505771108243364105, guid: d3b7bd5718c643c418498035314e0c93, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8505771108243364105, guid: d3b7bd5718c643c418498035314e0c93, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8505771108243364105, guid: d3b7bd5718c643c418498035314e0c93, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8505771108243364105, guid: d3b7bd5718c643c418498035314e0c93, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8505771108243364105, guid: d3b7bd5718c643c418498035314e0c93, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8505771108243364105, guid: d3b7bd5718c643c418498035314e0c93, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8505771108243364105, guid: d3b7bd5718c643c418498035314e0c93, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9023155816659873990, guid: d3b7bd5718c643c418498035314e0c93, type: 3}
+      propertyPath: m_text
+      value: Electromagnetic Room
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8844626403448291234, guid: d3b7bd5718c643c418498035314e0c93, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
+  m_SourcePrefab: {fileID: 100100000, guid: d3b7bd5718c643c418498035314e0c93, type: 3}
 --- !u!1 &1499815856
 GameObject:
   m_ObjectHideFlags: 0
@@ -31267,3 +31335,4 @@ SceneRoots:
   - {fileID: 958365057}
   - {fileID: 8614130112751724680}
   - {fileID: 1876535450}
+  - {fileID: 1498411129}
