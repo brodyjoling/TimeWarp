@@ -59,7 +59,8 @@ public class MouseDrag : MonoBehaviour
         {
             if (isPaper)
             {
-                if(!soundPlayed)
+                GravityOff.gravityOn = true;
+                if (!soundPlayed)
                 {
                     //sound.Play();
                     audioSources[0].Play();
