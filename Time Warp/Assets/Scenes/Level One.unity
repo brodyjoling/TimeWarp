@@ -21048,16 +21048,15 @@ MonoBehaviour:
   m_text: 'P.S
 
 
-    If objects start phasing between worlds the location has gone
+    If objects start phasing between worlds, the location has gone
     completely unstable.
 
 
-    If any location happens to become unstable we have
-    given you a specilized device to traverse dimensions.
+    If this happens, we have given you a specialized device
+    to traverse dimensions.
 
 
-    When needed, press
-    ''G''
+    When needed, press ''G''
 
 '
   m_isRightToLeft: 0
